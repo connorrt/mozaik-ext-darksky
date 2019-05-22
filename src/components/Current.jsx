@@ -16,24 +16,22 @@ class Current extends Component {
     // It tells Mozaïk that this component is interested in data coming from `sample` generated with `sampleMethod`
     // The `id` MUST be unique across all Mozaïk extensions.
     getApiRequest() {
-        const { user } = this.props;
-
         return { id: 'darksky.current' };
     }
 
     // This method is automatically invoked each time the `sample.sampleMethod` has fetched some data.
     // This assumes your method will return an object containing a `count` property.
     onApiData(current) {
-        this.setState({current});
-        console.log(data);
+        console.log(current);
     }
 
     render() {
-
+        const { current } = this.state;
         return (
             <div>
-                {current.icon}
-                {current.temperature}
+                hello
+                {current.currently.icon}
+                {current.currently.temperature}
             </div>
         );
     }
