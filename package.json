@@ -12,7 +12,7 @@
     "url": "https://github.com/connorrt"
   },
   "homepage": "https://github.com/connorrt/mozaik-ext-darksky",
-  "main": "./src/components/index.ts",
+  "main": "./src/components/index.js",
   "keywords": [
     "weather",
     "darksky",
