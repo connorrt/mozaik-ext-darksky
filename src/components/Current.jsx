@@ -39,8 +39,10 @@ class Current extends Component {
         if (this.state.currently) {
             content = (
                 <div>
-                    <p>Icon:</p>
-                    {this.state.currently.currently.temperature}
+                    <div className="current__container">
+                        <span className="temperature">{this.state.currently.currently.temperature.toFixed()}°</span>
+                        <span className="icon">{this.state.currently.currently.icon}</span>
+                    </div>
                 </div>
             )
         }
