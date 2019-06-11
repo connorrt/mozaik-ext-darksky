@@ -1,41 +1,70 @@
-import request from 'superagent-bluebird-promise';
-import * as Promise from 'bluebird';
-import config  from './config';
-import _       from 'lodash';
-import chalk   from 'chalk';
-// When Mozaïk instantiates a client, it pass the mozaik instance to it,
-// it's useful to use the builtin Mozaïk logger for example.
-// This function MUST return an object whose keys correspond to all available operations.\
-/*
- * Make sure all requests and other strings involved in the API call are template strings.
- * Without this, the call will be rejected for some reason.
- */
-const client = mozaik => {
+import React, { Component, PropTypes } from 'react';
+import reactMixin           from 'react-mixin';    // to be able to use Mixins on es6 classes
+import { ListenerMixin }    from 'reflux';         // see https://github.com/reflux/refluxjs#convenience-mixin-for-react
+import _                    from 'lodash';
+import Mozaik               from 'mozaik/browser'; // Mozaïk browser utilities
 
-    mozaik.loadApiConfig(config);
+class Current extends Component {
+    // we extend the constructor to set a default state
+    constructor(props) {
+        super(props);
 
-    const buildApiRequest = (path, params) => {
-        const token = config.get('darksky.token');
-        const location = config.get('darksky.location');
-        const baseURL = 'https://api.darksky.net/forecast/';
-        const req = request.get(`${baseURL}${token}/${location}`);
+        this.state = { currently: null };
+    }
 
-        const paramsDebug = params ? ` ${JSON.stringify(params)}` : '';
-        mozaik.logger.info(chalk.yellow(`[darksky] calling ${baseURL}${token}/${location}${paramsDebug}`));
+    // Before the component is mounted, the mixin will search for this method on the component.
+    // This method MUST return an object with an `id` property.
+    // It tells Mozaïk that this component is interested in data coming from `sample` generated with `sampleMethod`
+    // The `id` MUST be unique across all Mozaïk extensions.
+    getApiRequest() {
+        const { currently } = this.props;
 
-        if (params) {
-            req.query(params);
+        return {
+            id: 'darksky.currently',
+            params: {currently}
+        };
+    }
+
+    // This method is automatically invoked each time the `sample.sampleMethod` has fetched some data.
+    // This assumes your method will return an object containing a `count` property.
+    onApiData(currently) {
+        this.setState({ currently });
+    }
+
+    render() {
+        const { currently } = this.props;
+
+        // Sanity check to make sure bad requests don't kill the whole dashboard
+        let content = null;
+        if (this.state.currently) {
+            content = (
+                <div>
+                    <p>Icon:</p>
+                    {this.state.currently.currently.temperature}
+                </div>
+            )
+        }
+        else {
+            content = (
+                <div>
+                    API Error :(
+                </div>
+            )
         }
 
-        return req.promise();
-    };
+        return (
+            <div>
+                DARKSKY PANEL
+                {content}
+            </div>
+        );
+    }
+}
 
-    return {
-        currently() {
-            return buildApiRequest(``)
-                .then(res => res.body);
-        },
-    };
-};
+Current.displayName= 'Current';
 
-export default client;
+// apply the mixins on the component
+reactMixin(Current.prototype, ListenerMixin);
+reactMixin(Current.prototype, Mozaik.Mixin.ApiConsumer);
+
+export default Current;
