@@ -15,7 +15,7 @@ const client = mozaik => {
         const token = config.get('darksky.token');
         const location = config.get('darksky.location');
         const baseURL = 'https://api.darksky.net/forecast/';
-        const req = request.get({baseURL}+{token}+'/'+{location});
+        const req = request.get(`${baseURL}${token}/${location}`);
 
         const paramsDebug = params ? ` ${JSON.stringify(params)}` : '';
         mozaik.logger.info(chalk.yellow(`[darksky] calling ${baseURL}${token}/${location}${paramsDebug}`));
@@ -30,7 +30,7 @@ const client = mozaik => {
     return {
         currently() {
 
-            return buildApiRequest('')
+            return buildApiRequest(``)
                 .then(res => res.body);
         },
     };
