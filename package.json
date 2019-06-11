@@ -1,6 +1,6 @@
 {
   "name": "mozaik-ext-darksky",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Mozaik Dark Sky widgets",
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "node-fetch": "latest",
     "react-mixin": "3.0.4",
     "reflux": "0.4.1",
+    "skycons": "^1.0.0",
     "superagent": "^5.0.6",
     "superagent-bluebird-promise": "3.0.0"
   },

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import reactMixin           from 'react-mixin';    // to be able to use Mixins on es6 classes
 import { ListenerMixin }    from 'reflux';         // see https://github.com/reflux/refluxjs#convenience-mixin-for-react
 import _                    from 'lodash';
+import Skycons         from 'skycons';
 import Mozaik               from 'mozaik/browser'; // Mozaïk browser utilities
 
 class Current extends Component {
@@ -33,6 +34,10 @@ class Current extends Component {
 
     render() {
         const { currently } = this.props;
+        //let skycons = new Skycons();
+        //skycons.add("icon1",Skycons.PARTLY_CLOUDY_DAY);
+        //skycons.play();
+        //skycons.set("icon1", this.state.currently.currently.icon);
 
         // Sanity check to make sure bad requests don't kill the whole dashboard
         let content = null;
@@ -41,7 +46,7 @@ class Current extends Component {
                 <div>
                     <div className="current__container">
                         <span className="temperature">{this.state.currently.currently.temperature.toFixed()}°</span>
-                        <span className="icon">{this.state.currently.currently.icon}</span>
+                        <canvas className="icon"></canvas>
                     </div>
                 </div>
             )
@@ -56,7 +61,6 @@ class Current extends Component {
 
         return (
             <div>
-                DARKSKY PANEL
                 {content}
             </div>
         );
