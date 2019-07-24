@@ -1,9 +1,19 @@
-### MOZAIK DARKSKY EXTENSION ###
-___
-**(Under Construction)**
+# MOZAIK DARKSKY EXTENSION ###
 
-For use in the Mozaik modular dashboard.
+Mozaik extension that displays the weather using the DarkSky APIi. For use in the [Mozaik modular dashboard](
+http://mozaik.rocks). 
 
 Author: [Connor Taylor](https://github.com/connorrt)
 
-(This extension is neither made nor endorsed by The Dark Sky Company, LLC)
+## Functions
+
+### Current
+
+Displays the current temperature in Fahrenheit, a text description of the current weather,
+ and an icon describing the current weather.
+ 
+## Changelog
+
+### 1.0.0:
+
+Current weather widget.
