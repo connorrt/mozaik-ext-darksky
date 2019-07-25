@@ -33,6 +33,11 @@ const client = mozaik => {
             return buildApiRequest(``)
                 .then(res => res.body);
         },
+        rain_graph() {
+
+            return buildApiRequest(``)
+                .then(res => res.body);
+        },
     };
 };
 
