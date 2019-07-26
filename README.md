@@ -12,13 +12,13 @@ Author: [Connor Taylor](https://github.com/connorrt)
 Displays the current temperature in Fahrenheit, a text description of the current weather,
  and an icon describing the current weather.
  
-![Current](https://raw.githubusercontent.com/connorrt/mozaik-ext-darksky/master/preview/current.png)
+<img src="https://raw.githubusercontent.com/connorrt/mozaik-ext-darksky/master/preview/current.png" width="400" alt="Current" />
  
 ### RainGraph
 
 Displays a chart of the predicted amount of precipitation over the next 60 minutes.
 
-![rainChart](https://raw.githubusercontent.com/connorrt/mozaik-ext-darksky/master/preview/rainChart.png)
+<img src="https://raw.githubusercontent.com/connorrt/mozaik-ext-darksky/master/preview/rainChart.png" width="400" alt="RainGraph" />
  
 ## Changelog
 
