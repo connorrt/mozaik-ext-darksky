@@ -29,3 +29,7 @@ Current weather widget.
 ### 1.0.1:
 
 Added rain graph.
+
+### 1.0.2:
+
+Fixed styles on current. Fixed some security vulnerabilities in dependencies.
