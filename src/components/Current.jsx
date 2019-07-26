@@ -71,13 +71,15 @@ class Current extends Component {
                     icon = "🌙☁️";
             }
             content = (
-                <div className="current__container">
+                <div className="content-container">
+                    <div className="temp-container">
                         <span className="temperature">
                             {this.state.currently.currently.temperature.toFixed()}°
                         </span>
-                    <span className="icon">
-                            <p>{icon}️</p>
-                    </span>
+                        <span className="icon">
+                            {icon}️
+                        </span>
+                    </div>
                     <div className="summary">
                         {this.state.currently.currently.summary}
                     </div>
@@ -92,7 +94,7 @@ class Current extends Component {
         }
 
         return (
-            <div>
+            <div className="current__container">
                 {content}
             </div>
         );
