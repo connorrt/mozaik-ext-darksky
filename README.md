@@ -5,6 +5,26 @@ http://mozaik.rocks).
 
 Author: [Connor Taylor](https://github.com/connorrt)
 
+### parameters
+key       | env key          | required | default          | description
+----------|------------------|----------|------------------|----------------------------
+`token`   | DARKSKY_API_TOKEN | yes     |                  | *harvest authentication token*
+`location` | DARKSKY_LOCATION  | yes    | 0,0              | *harvest account id* 
+
+#### usage
+```javascript
+{
+  type: 'darksky.current',
+  columns: 1, rows: 1, 
+  x: 0, y: 0
+},
+{
+  type: 'darksky.rain_graph',
+  columns: 1, rows: 1, 
+  x: 0, y: 1
+}
+```
+
 ## Functions
 
 ### Current
