@@ -45,7 +45,7 @@ class RainGraph extends Component {
             for (let i = 0; i < 60; i++) {
                 if (hourly.minutely.data[i]) {
                     output.push(<div className="bar"
-                                     style={{height: (this.state.hourly.minutely.data[i].precipProbability + '%')}}/>
+                                     style={{height: (this.state.hourly.minutely.data[i].precipProbability*100 + '%')}}/>
                     );
                 }
             }

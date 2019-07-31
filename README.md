@@ -32,4 +32,8 @@ Added rain graph.
 
 ### 1.0.2:
 
-Fixed styles on current. Fixed some security vulnerabilities in dependencies.
+(Broken) Fixed styles on current. Fixed some security vulnerabilities in dependencies.
+
+### 1.0.3:
+
+Undid breaking package changes from 1.0.2.
